@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-color: #08040c;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        position: relative;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        border-radius: 14px;
+        padding: 3px 150px 30px;
+        width: 300px;
+        height: 400px;
+        justify-content: center;
+        align-content: center;
+        gap: 4px;
+        outline: none;
+        border: 1.5px solid #8A2BE2;
+        box-shadow: 0px 0px 12px rgba(138, 43, 226, 0.6);
+        background: linear-gradient(135deg, #6A1B9A, #3A0A5C);
+        margin-top: 90px;
+        font-family: 'Ciento';
+    }
+
+    .box h1 {
+        font-size: 35px;
+        width: 345px;
+        font-family: 'Ciento';
+        align-self: center;
+        margin-top: -10px;
+        color: white;
+        /* text-shadow: 0 0 7px rgba(201, 203, 255, 0.4); */
+    }
+
+    .box #username .user {
+        border: 1px solid;
+        width: fit-content;
+        height: 80px;
+        border-radius: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 18px 16px;
+        align-self: center;
+        margin-left: 80px;
+        background: white;
+        color: #52058a;
+        box-shadow: 1px 1px 10px;
+        transition: 0.4s ease-in-out;
+        position: relative;
+        opacity: 1;
+        z-index: 10;
+    }
+
+    .box #username .user::before {
+        content: "";
+        position: relative;
+        inset: 0;
+        border-radius: 50%;
+        background: white;
+        z-index: -1;
+    }
+
+    .box #username.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .box #username {
+        display: flex;
+        position: relative;
+        align-items: center;
+        /* opacity: 0; */
+        /* transform: translateY(15px); */
+        transition: 0.5s ease;
+    }
+
+    .box #username #userInput {
+        width: 0;
+        position: absolute;
+        left: 150px;
+        height: 70px;
+        border-radius: 50px;
+        border: none;
+        transition: width 0.4s ease, opacity 0.2s ease;
+        padding: 0;
+        opacity: 0;
+        background-color: #6b21a0;
+        padding-left: 50px;
+        transition: .5s;
+        color: white;
+        text-decoration-color: white;
+        font-size: 20px;
+        box-shadow: 0px 0px 5px rgba(65, 61, 61, 0.952);
+        font-family: "Ciento";
+    }
+
+    .box #username #userInput.show {
+        opacity: 1;
+        width: 250px;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    .box #username .user i {
+        font-size: 50px;
+        align-self: center;
+        color: #52058a;
+    }
+
+    .box #Password .password {
+        border: 1px solid;
+        width: fit-content;
+        height: 80px;
+        border-radius: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 18px 16px;
+        align-self: center;
+        margin-left: 80px;
+        background: white;
+        color: #52058a;
+        box-shadow: 1px 1px 10px;
+        transition: 0.4s ease-in-out;
+        position: relative;
+        z-index: 10;
+    }
+
+    .box #Password {
+        display: flex;
+        position: relative;
+        align-items: center;
+        /* opacity: 0; */
+        /* transform: translateY(15px); */
+        transition: 0.5s ease;
+        margin-top: 14px;
+    }
+
+    .box #Password.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .box #Password #passwordInput {
+        width: 0;
+        position: absolute;
+        right: 160px;
+        height: 72px;
+        border-radius: 50px;
+        border: none;
+        transition: width 0.4s ease, opacity 0.2s ease;
+        padding: 0;
+        opacity: 0;
+        background-color: #6b21a0;
+        color: white;
+        padding-left: 30px;
+        transition: .5s;
+        font-size: 20px;
+        font-family: "Ciento";
+    }
+
+    .box #Password #passwordInput.show {
+        opacity: 1;
+        width: 290px;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    .box #Password .ri-eye-fill {
+        /* width: 0; */
+        position: absolute;
+        right: 250px;
+        height: 70px;
+        border-radius: 50px;
+        border: none;
+        transition: width 0.4s ease, opacity 0.2s ease;
+        top: 45px;
+        opacity: 0;
+        /* background: rgba(160, 147, 147, 0.15); */
+        padding-left: 30px;
+        cursor: pointer;
+    }
+
+    .box #Password .ri-eye-off-fill {
+        position: absolute;
+        right: 250px;
+        height: 70px;
+        border-radius: 50px;
+        border: none;
+        transition: width 0.4s ease, opacity 0.2s ease;
+        top: 45px;
+        opacity: 0;
+        /* background: rgba(160, 147, 147, 0.15); */
+        padding-left: 30px;
+        cursor: pointer;
+    }
+
+    .box #Password .password i {
+        font-size: 50px;
+        align-self: center;
+        color: #52058a;
+    }
+
+    .box #username .user:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 25px rgba(41, 41, 107, 0.288);
+        scale: 1.1;
+        text-shadow: 1px 1px 10px rgba(201, 203, 255, 0.507);
+    }
+
+    .box #username #userInput::placeholder {
+        text-align: center;
+        margin-left: 170px;
+        right: 120px;
+        font-family: 'Ciento';
+        color: #A3A3C2;
+        font-size: 17px;
+
+    }
+
+    .box #Password .password:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 25px rgba(41, 41, 107, 0.288);
+        scale: 1.1;
+        text-shadow: 1px 1px 10px rgba(201, 203, 255, 0.507);
+    }
+
+    .box #Password #passwordInput::placeholder {
+        text-align: center;
+        /* margin-left: 220px; */
+        /* padding-right: -20px; */
+        font-family: 'Ciento';
+        color: #A3A3C2;
+        font-size: 17px;
+        position: absolute;
+    }
+
+    .box button {
+        width: 400px;
+        align-self: center;
+        padding: 14px;
+        border-radius: 14px;
+        border: none;
+        /* font-family: ' C'; */
+        font-weight: 700;
+        font-size: 18px;
+        /* margin-left: -90px; */
+        background-color: #58029e;
+        background-color: white;
+        cursor: pointer;
+        box-shadow: 0 0 10px #58029e;
+        color: white;
+        color: #58029e;
+        transition: .5s;
+        /* margin-top: 60px; */
+        /* margin-bottom: -80px; */
+        position: relative;
+        top: 20px;
+    }
+
+    button:hover {
+        scale: 1.1;
+    }
+
+    #errormsg {
+        position: absolute;
+        margin-top: 90px;
+        color: rgba(201, 11, 11, 0.842);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        right: -50px;
+        font-weight: 500;
+        transition: .5s;
+    }
+
+    #errormsg2 {
+        position: absolute;
+        margin-top: 90px;
+        color: rgba(201, 11, 11, 0.842);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: -50px;
+        transition: .5s;
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: 'Ciento';
+        src: url('Ciento Bold.otf') format('truetype');
+    }
+
+    @media (max-width: 768px) {
+        .box {
+            width: 100px;
+        }
+
+        .box h1 {
+            font-size: 30px;
+            text-align: center;
+            justify-self: center;
+        }
+
+        .box #username #userInput {
+            height: 65px;
+            /* padding-left: 20px; */
+        }
+
+        .box #username .user i {
+            font-size: 30px;
+            /* padding: 0; */
+
+        }
+
+        .box #username .user {
+            padding: 10px;
+            justify-self: center;
+            align-self: center;
+            right: -10px;
+
+
+        }
+
+        .box #username {
+            justify-self: center;
+            align-self: center;
+            margin-left: -100px;
+        }
+
+        .box #Password .password i {
+            font-size: 30px;
+            /* padding: 0; */
+
+        }
+
+        .box #Password .password {
+            padding: 10px;
+            width: 80px;
+            /* justify-self: center;
+            align-self: center;
+            text-align: center; */
+            left: -40px;
+            position: relative;
+
+
+        }
+
+        .box #Password {
+            justify-self: center;
+            align-self: center;
+            /* margin-left: 100px; */
+        }
+
+        .box #username #userInput.show {
+            width: 180px;
+        }
+
+        .box #Password #passwordInput.show {
+            width: 210px;
+            height: 65px;
+        }
+
+        .box #username #userInput::placeholder {
+            text-align: center;
+            /* margin-left: 300px; */
+            overflow: visible;
+            z-index: 10;
+            position: absolute;
+            left: -130px;
+        }
+
+        .box #Password #passwordInput {
+            right: 100px;
+        }
+
+        .box #Password .ri-eye-fill {
+            /* width: 0; */
+            position: absolute;
+            right: 150px;
+
+        }
+
+        .box #Password .ri-eye-off-fill {
+            position: absolute;
+            right: 150px;
+        }
+
+        .box button {
+            width: 260px;
+            padding: 10px;
+        }
+
+        #errormsg {
+            font-size: 14px;
+            width: 100%;
+            color: rgb(235, 3, 3);
+        }
+        #errormsg2 {
+            font-size: 14px;
+            width: 100%;
+            color: rgb(235, 3, 3);
+            margin-left: -80px;
+        }
+    }
+</style>
+
+<body> <!-- <div id="msg" class="message"> <div id="cancelBtn"></div> <p>Login Successful!</p> </div> -->
+    <form class="box" id="form" action="submit">
+        <div id="head">
+            <h1>LOGIN TO CONTINUE</h1>
+        </div>
+        <div id="username">
+            <div class="user"> <i class="ri-user-line"></i> <label>Username</label> </div> <input type="text"
+                id="userInput" class="input" placeholder="Username"> <span id="errormsg"></span>
+        </div>
+        <div id="Password">
+            <div class="password"> <i class="ri-lock-unlock-line"></i> <label>Password</label> </div> <input
+                type="password" id="passwordInput" placeholder="Password"> <i class="ri-eye-fill" id="toggle"></i> <span
+                id="errormsg2"></span>
+        </div> <button id="btn" type="submit">LOGIN</button>
+    </form>
+    <script> setTimeout(() => {
+            const myUser = document.getElementById("username");
+            myUser.style.transition = ".6s";
+            myUser.style.transform = "translateX(-110px)";
+            let nameInput = document.getElementById("userInput");
+            nameInput.classList.add("show")
+        }, 500);
+
+        setTimeout(() => {
+            const myPassword = document.getElementById("Password");
+            myPassword.style.transition = ".6s";
+            if (window.matchMedia("(max-width:768px)").matches) {
+                myPassword.style.transform = "translateX(100px)";
+            } else {
+                myPassword.style.transform = "translateX(160px)";
+            }
+            // myPassword.style.transform = "translateX(160px)";
+            const passwordInput = document.getElementById("passwordInput");
+            passwordInput.classList.add("show")
+            setTimeout(() => {
+                const toggle = document.getElementById("toggle")
+
+                toggle.style.opacity = "1"
+            }, 1000);
+        }, 1000);
+        //  const password = document.getElementById("passwordInput") 
+        //  const name = username.value.trim() 
+        //  const pass = password.value.trim() 
+        // // const nameError = document.getElementById("errormsg")
+        //  // const passwordError = document.getElementById("errormsg2") 
+        // // const user = JSON.parse(localStorage.getItem("users")) 
+        // // let isValid = true; 
+        // // if (name === user.username) { 
+        // // isValid = true; // 
+        // } else {
+        //  // isValid = false; 
+        // // nameError.textContent = "Username does not exist." // username.style.outlineColor = "red" // } // if (pass === user.password) { // isValid = true; // } else { // isValid = false; // passwordError.textContent = "Incorrect Password." // password.style.outlineColor = "red" // } 
+
+        // const form = document.getElementById("form") 
+        const form = document.getElementById("form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("userInput");
+            const password = document.getElementById("passwordInput");
+            const name = username.value.trim();
+            const pass = password.value.trim();
+
+            const nameError = document.getElementById("errormsg");
+            const passwordError = document.getElementById("errormsg2");
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+
+            nameError.textContent = "";
+            passwordError.textContent = "";
+            username.style.boxShadow = "";
+            password.style.boxShadow = "";
+
+            let isValid = true;
+            if (name === "") {
+                nameError.textContent = "Input Username.";
+                nameError.style.left = "180px"
+                username.style.boxShadow = "0px 0px 5px red";
+                isValid = false;
+            }
+
+            if (pass === "") {
+                passwordError.textContent = "Input Password.";
+                passwordError.style.left = "35px"
+                password.style.boxShadow = "0px 0px 5px red";
+                isValid = false;
+            }
+            if (!isValid) return;
+
+            const foundUser = users.find(user => user.username === name);
+            if (!foundUser) {
+                nameError.textContent = "Username does not exist.";
+                nameError.style.top = "1px"
+                username.style.boxShadow = "0px 0px 5px red";
+                return;
+            }
+            if (foundUser.password !== pass) {
+                passwordError.textContent = "Incorrect Password.";
+                passwordError.style.left = "10px"
+                password.style.boxShadow = "0px 0px 5px red";
+                return;
+            }
+
+            localStorage.setItem("currentUser", JSON.stringify(foundUser));
+            window.location.href = "profile.html";
+        });
+
+        const togglePassword = document.getElementById("toggle");
+        const password = document.getElementById("passwordInput");
+        const pass = password.value.trim();
+
+        togglePassword.addEventListener("click", () => {
+            if (password.type === "password") {
+                password.type = "text";
+                togglePassword.classList.remove("ri-eye-fill");
+                togglePassword.classList.add("ri-eye-off-fill");
+            } else {
+                password.type = "password";
+                togglePassword.classList.remove("ri-eye-off-fill");
+                togglePassword.classList.add("ri-eye-fill");
+            }
+        });
+        // console.log(isValid); 
+    </script>
+</body>
+
+</html>
