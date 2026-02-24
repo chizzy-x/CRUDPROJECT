@@ -118,13 +118,15 @@
         border-radius: 14px;
         background-color: rgb(219, 208, 208);
         color: #52058a;
-        gap: 320px;
+        justify-content: space-between;
         height: 40px;
         /* transform: translateY(-10px); */
         /* margin-top: 1; */
         animation: fadeUp1 .7s 1.3s forwards ease-in-out;
         transition: .5s;
         opacity: 0;
+        min-width: 0;
+        padding: 10px 20px;
     }
 
     .name h4,
@@ -136,6 +138,8 @@
         font-size: 18px;
         color: rgba(109, 106, 112, 0.856);
         font-weight: 1000;
+        margin: 0;
+        margin-top: 10px;
     }
 
     .mail {
@@ -149,6 +153,8 @@
         animation: fadeUp2 .7s 1.6s forwards ease-in-out;
         opacity: 0;
         transition: .5s;
+        min-width: 0;
+        padding: 10px 20px;
     }
 
     .mail h4,
@@ -164,6 +170,8 @@
         font-size: 18px;
         color: rgba(109, 106, 112, 0.856);
         font-weight: 1000;
+        margin: 0;
+         margin-top: 10px;
     }
 
     .password {
@@ -173,11 +181,14 @@
         border-radius: 14px;
         background-color: rgb(219, 208, 208);
         color: #52058a;
-        gap: 270px;
+        /* gap: 270px; */
         height: 40px;
         animation: fadeUp3 .7s 1.9s forwards ease-in-out;
         opacity: 0;
         transition: .5s;
+        min-width: 0;
+        padding: 10px 20px;
+        justify-content: space-between;
     }
 
     .password h4,
@@ -189,6 +200,8 @@
         font-size: 18px;
         color: rgba(109, 106, 112, 0.856);
         font-weight: 1000;
+        margin: 0;
+        margin-top: 10px;
     }
 
     .side-div {
@@ -294,6 +307,17 @@
             font-size: 80px;
         }
     }
+        @keyframes show {
+        0% {
+            scale: .5;
+            opacity: 0;
+        }
+
+        100% {
+            scale: 1;
+            opacity: 1;
+        }
+    }
 
     @font-face {
         font-family: 'Ciento';
@@ -321,6 +345,8 @@
         color: white;
         transition: .5s;
         margin-top: 30px;
+        animation: show .8s 2.3s forwards ease-in-out;
+        opacity: 0;
     }
 
     .logout:hover {
@@ -347,7 +373,53 @@
         background: linear-gradient(#8b26ca, #52058a);
         font-family: 'Inter';
         margin-left: 170px;
-        /* transition: .7s; */
+        transition: .5s;
+    }
+
+    .name2 {
+        display: flex;
+        width: 500px;
+        padding: 10px;
+        border-radius: 14px;
+        background-color: rgb(219, 208, 208);
+        color: #52058a;
+        gap: 320px;
+        height: 40px;
+        /* transform: translateY(-10px); */
+        /* margin-top: 1; */
+        animation: fadeUp1 .7s .6s forwards ease-in-out;
+        transition: .5s;
+        opacity: 0;
+        min-width: 0;
+        padding: 10px 20px;
+    }
+
+    .password2 {
+        display: flex;
+        width: 500px;
+        padding: 10px;
+        border-radius: 14px;
+        background-color: rgb(219, 208, 208);
+        color: #52058a;
+        gap: 270px;
+        height: 40px;
+        animation: fadeUp3 .7s .8s forwards ease-in-out;
+        opacity: 0;
+        transition: .5s;
+        min-width: 0;
+        padding: 10px 20px;
+        min-width: 0;
+        padding: 10px 20px;
+    }
+
+
+
+    .name2 h4 {
+        margin-top: 10px;
+    }
+
+    .password2 h4 {
+        margin-top: 10px;
     }
 
     #box-2 input {
@@ -416,11 +488,17 @@
         color: white;
         transition: .5s;
         margin-top: 20px;
+        animation: show .8s 1s forwards ease-in-out;
+        opacity: 0;
     }
 
-    
-        /* margin-top: -20px; */
-    
+    .save:hover {
+        scale: 1.1;
+    }
+
+
+    /* margin-top: -20px; */
+
 
     /* MOBILE RESPONSIVENESS */
     @media (max-width: 768px) {
@@ -432,9 +510,10 @@
 
         .box {
             width: 90%;
-            margin-left: 0;
+            margin-left: 12px;
             height: auto;
             padding: 20px 10px;
+            justify-self: center;
         }
 
         .top-text {
@@ -464,13 +543,34 @@
         .mail,
         .password {
             width: 90%;
-            gap: 10px;
+            /* gap: 3px; */
             justify-content: space-between;
             /* display: flex; */
             /* height: auto; */
             /* flex-wrap: wrap; */
             font-size: 17px;
             overflow: visible;
+            min-width: 0;
+            min-width: 0;
+            padding: 10px 20px;
+        }
+
+        .name {
+            justify-content: space-between;
+            /* gap: 10px; */
+        }
+
+        .mail {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .password{
+            /* gap: 10px; */
+        }
+        .password p {
+            /* margin: 0; */
         }
 
         .logout {
@@ -493,6 +593,41 @@
             font-size: 30px;
             padding: 10px;
             transition: .4s;
+        }
+
+        #box-2 {
+            width: 70%;
+            margin-left: 0;
+            /* height: auto; */
+            padding: 50px;
+        }
+
+        .info2 {
+            width: 100%;
+            align-items: center;
+        }
+
+        .name2,
+        .password2 {
+            width: 90%;
+            gap: 200px;
+            justify-content: space-between;
+            /* display: flex; */
+            /* height: auto; */
+            /* flex-wrap: wrap; */
+            font-size: 17px;
+            overflow: visible;
+            min-width: 0;
+           padding: 10px 20px;
+        }
+
+        body {
+            display: flex;
+            /* gap: 10px; */
+        }
+
+        .save {
+            width: 350px;
         }
 
     }
@@ -533,11 +668,11 @@
             <p>You Can Edit your Profile Details Here </p>
         </div>
         <div class="info2">
-            <div class="name">
+            <div class="name2">
                 <h4>Username</h4>
                 <input type="text" id="name">
             </div>
-            <div class="password">
+            <div class="password2">
                 <h4>Password</h4>
                 <input type="text" id="password2" style="width: 400px;">
             </div>
@@ -581,14 +716,26 @@
             icon3.classList.remove("active");
             // icon2.style.backgroundColor = "#52058a"
             // icon2.style.color = "white"
-            box.style.transform = "translateY(.2px)"
+            if (window.matchMedia("(max-width:768px)").matches) {
+                box.style.transform = "translateX(.2px)"
 
-            box2.style.transform = "translateY(530px)"
-            box2.style.transition = ".7s"
+                box2.style.transform = "translateX(530px)"
+                // box2.style.transition = ".7s"
 
-            setTimeout(() => {
-              box2.style.display = "none"
-            }, 100);
+                setTimeout(() => {
+                    box2.style.display = "none"
+                }, 200);
+            } else {
+                box.style.transform = "translateY(.2px)"
+
+                box2.style.transform = "translateY(530px)"
+                box2.style.transition = ".7s"
+
+                setTimeout(() => {
+                    box2.style.display = "none"
+                }, 100);
+            }
+
         });
 
         icon3.addEventListener("click", () => {
@@ -597,15 +744,23 @@
             // icon2.style.backgroundColor = "white"
             // icon2.style.color = "#52058a"
             // icon2.style.boxShadow = "0px 0px 0px"
+            if (window.matchMedia("(max-width:768px)").matches) {
+                box.style.transform = "translateX(-500px)"
+                box2.style.display = "flex"
+                setTimeout(() => {
+                    box2.style.transform = "translateX(-430px)"
+                    // box2.style.transition = ".7s"
+                }, 200);
+            } else {
+                box.style.transform = "translateY(-800px)"
+                box2.style.display = "flex"
+                setTimeout(() => {
+                    box2.style.transform = "translateY(-530px)"
+                    box2.style.transition = ".7s"
+                }, 100);
+            }
 
-            box.style.transform = "translateY(-800px)"
 
-
-            box2.style.display = "flex"
-            setTimeout(() => {
-                box2.style.transform = "translateY(-530px)"
-                box2.style.transition = ".7s"
-            }, 100);
         });
 
         const line = document.getElementById("line")
@@ -618,7 +773,7 @@
         logout.onclick = function name(params) {
             localStorage.removeItem("currentUser");
             window.location.href = "loginform.html"
-            
+
         }
 
         const nameInput = document.getElementById("name");
@@ -656,9 +811,25 @@
 
                 localStorage.setItem("users", JSON.stringify(users));
                 localStorage.setItem("currentUser", JSON.stringify(users));
+
+                console.log(newUsername);
+                console.log(newPassword);
+
+                username.textContent = newUsername;
+                password.textContent = newPassword;
+                wlcText.textContent = "Welcome," + newUsername;
+
+                window.alert("Details Successfully Updated")
+
+                // window.location.href ="profile.html"
+                // location.reload()
+
+
+
+
             })
-            
-            
+
+
 
         })
 
